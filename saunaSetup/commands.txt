@@ -1,0 +1,160 @@
+1  sudo yum update -y
+-it update the previously available libraries
+
+2  sudo amazon-linux-extras install nginx1
+-It installs nginx from amazon linux extras packeges
+
+3  cat /etc/os-release
+-It tell the info about system os
+    
+4  sudo yum install -y amazon-linux-extras
+-It install amazon linux extras to install additional repositories
+
+5  clear
+- It cleans the terminal to look clear
+
+6  cat /etc/os-release
+
+7  sudo dnf update -y
+-It updates all packages ( altenative to Yum in newer versions)
+ 
+8  sudo dnf install nginx -y
+- It installs nginx from dnf packages
+
+9  sudo systemctl start nginx
+-It start the available nginx service
+
+10  sudo systemctl status nginx
+- Check current status of nginx
+
+11  sudo systemctl enable nginx
+- Enable nginx to start at boot
+
+12  sudo yum install -y https://extras.getpagespeed.com/release-el7-latest.rpm
+-Adds external repo for additional nginx modules
+
+13  sudo yum install -y nginx-mod-rtmp
+-Install the rtmp modules for nginx
+
+14  sudo vi /etc/nginx/nginx.conf
+- Open nginx conf file in vi editor
+
+15  sudo nano /etc/nginx/nginx.conf
+- Open in nano
+
+16  sudo mkdir -p /var/www/html/hls
+17  sudo chmod -R 755 /var/www/html/hls
+
+18  sudo systemctl restart nginx
+19  sudo systemctl status  nginx
+
+20  nginx -V 2>&1 | grep -- '--add-module'
+-Check nginc is built with additional module
+
+21  sudo yum install -y https://extras.getpagespeed.com/release-el7-latest.rpm
+22  sudo yum install -y nginx-mod-rtmp
+
+23  sudo yum install -y gcc pcre-devel zlib-devel openssl-devel git
+-install dependency to build nginx from source
+
+24  wget http://nginx.org/download/nginx-1.24.0.tar.gz
+-Download nginx source code
+
+25  tar -zxvf nginx-1.24.0.tar.gz
+- extract downloaded tar file
+
+26  cd nginx-1.24.0
+- Enter into nginx directory
+
+27  git clone https://github.com/arut/nginx-rtmp-module.git
+- clone RTMP module source code
+
+28  ./configure --add-module=./nginx-rtmp-module --with-http_ssl_module
+-configure nginx to include rtmp module and ssl support
+
+29  make
+- complie nginx with source code
+
+30  sudo make install
+- install the compiled nginx binary
+
+31  /usr/local/nginx/sbin/nginx -V 2>&1 | grep -- '--add-module'
+32  sudo nano /etc/nginx/nginx.conf
+33  sudo systemctl restart nginx
+34  sudo systemctl status  nginx
+35  sudo nginx -t
+
+36  sudo tail -f /var/log/nginx/error.log
+-monitor the nginx log
+
+37  nginx -V
+-Display nginx log
+
+38  sudo yum install -y https://extras.getpagespeed.com/release-el7-latest.rpm
+39  sudo yum install -y nginx-mod-rtmp
+40  wget http://nginx.org/download/nginx-1.24.0.tar.gz
+41  tar -zxvf nginx-1.24.0.tar.gz
+42  cd nginx-1.24.0
+43  sudo yum install -y gcc pcre-devel zlib-devel openssl-devel git
+44  wget http://nginx.org/download/nginx-1.24.0.tar.gz
+45  tar -zxvf nginx-1.24.0.tar.gz
+46  cd nginx-1.24.0
+47  git clone https://github.com/arut/nginx-rtmp-module.git
+48  ./configure --add-module=./nginx-rtmp-module --with-http_ssl_module
+49  make
+50  sudo make install
+51  /usr/local/nginx/sbin/nginx -V 2>&1 | grep -- '--add-module'
+52  sudo nano  /usr/local/nginx/conf/nginx.conf
+53  /usr/local/nginx/sbin/nginx -V 2>&1 | grep -- '--add-module'
+
+
+
+
+54  sudo mkdir -p /var/www/html/hls
+-It creates hls directory
+
+55  sudo chmod -R 755 /var/www/html/hls
+-Set the correct permission the "/var/www/html/hls/" directory
+
+56  sudo /usr/local/nginx/sbin/nginx -t
+-Test the manually installed nginx configurations
+
+57  sudo /usr/local/nginx/sbin/nginx
+-It starts nginx manually
+
+58  sudo /usr/local/nginx/sbin/nginx -s reload
+-Reload nginx without restart
+
+59  ps aux | grep nginx
+60  sudo systemctl status nginx
+
+61  sudo yum install -y epel-release
+-It enables the epel repository for additional packages
+
+62  sudo yum install -y nginx nginx-mod-rtmp
+-It installs nginx and rtmp modules
+
+63  sudo /usr/local/nginx/sbin/nginx -s stop
+-It stops manually installed nginx
+
+64  ps aux | grep nginx
+-It verifies is any nginx process is still running
+
+65  sudo nano  /etc/systemd/system/nginx.service
+-It open the service file of nginx
+
+66  sudo systemctl daemon-reload
+-It reloads systemd configurations
+
+67  sudo systemctl start nginx
+68  sudo systemctl status nginx
+
+69  sudo nano  /usr/local/nginx/conf/nginx.conf
+-It open the config files of nginx where http and rtmp server added
+
+70  ls /var/www/html/hls
+-It is the location where hls files are stored
+
+71  exit
+72  logout
+73  history
